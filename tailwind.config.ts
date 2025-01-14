@@ -11,6 +11,11 @@ export default {
       colors: {
         Gray:"#F5F5F5"
       },
+      screens:{
+        xs:'350px',
+        mtl:'1150px',
+        xlarge:'1250px'
+      }
     },
   },
   plugins: [],
