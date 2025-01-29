@@ -1,23 +1,18 @@
 const DataForNavbar = [
   {
     Id: 1,
-    Title: "Home",
+    Title: "On Sale",
     Url: "",
   },
   {
     Id: 2,
-    Title: "Contact",
+    Title: "New Arivals",
     Url: "Contact",
   },
   {
     Id: 3,
-    Title: "About",
+    Title: "Brands",
     Url: "About",
-  },
-  {
-    Id: 4,
-    Title: "Sign Up",
-    Url: "SignUp",
   },
 ];
 export default DataForNavbar

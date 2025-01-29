@@ -15,7 +15,7 @@ import Link from 'next/link';
 export default function SwiperSlideImage() {
   return (
     <>
-      <div className=' xlarge:flex relative right-96 top-0 hidden   ' style={{width:'1000px',height:'400px'}}>
+      <div className=' xlarge:flex relative right-96 top-0 hidden    ' style={{width:'1000px',height:'400px'}}>
           <Swiper
           slidesPerView={1}
           spaceBetween={50}

@@ -9,12 +9,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        Gray:"#F5F5F5"
+        Gray:"#F0F0F0",
+        SecondaryRed:"#DB4444"
       },
       screens:{
         xs:'350px',
         mtl:'1150px',
         xlarge:'1250px'
+      },
+      width:{
+        '104':'405px'
       }
     },
   },
