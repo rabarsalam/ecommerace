@@ -22,7 +22,7 @@ export default function Navbar() {
   }
   return (
     <div>
-      <nav className="grid grid-cols-2 items-center justify-around  p-2 border-b-2 relative bg-white w-screen">
+      <nav className="grid grid-cols-2 items-center justify-around  p-2 border-b-2 fixed bg-white w-screen ">
         <div className="flex items-center justify-between sm:gap-20  ">
         {/* Title */}
         <div className="grid grid-cols-2 items-center justify-between gap-4 relative">
@@ -61,9 +61,9 @@ export default function Navbar() {
         <div className="flex justify-end sm:pr-14 items-center  gap-5 ml-7" >
           <div className={`${isSearchVisible? ' flex  ' : 'flex w-0'}flex items-center justify-between relative     rounded-full sm:px-4 sm:py-1 gap-3   `}>
             <Image src={Search} onClick={toggleSearch} alt="Search" width={30} height={30} className="flex sm:hidden cursor-pointer  relative mr-3 sm:left-10 " />
-            <Image src={Search}  alt="Search" width={30} height={30} className="hidden sm:flex cursor-pointer absolute left-8" />
-            <input placeholder="What are you looking for? " aria-label="Search" type="text" className={`${isSearchVisible?'hidden':'flex'}  fixed py-2   top-11 rounded-b-lg  right-0 left-0 sm:static sm:bg-Gray w-full items-center justify-center outline-none sm:py-3 sm:pl-16 sm:pr-20  sm:rounded-full transition-all duration-300`} />
-
+            <Image src={Search}  alt="Search" width={30} height={30} className="hidden sm:flex cursor-pointer absolute left-8 " />
+            <input placeholder="What are you looking for? " aria-label="Search" type="text" className={`${isSearchVisible?'hidden':'flex'}  fixed py-2   top-10 rounded-b-lg  right-0 left-0 sm:static sm:bg-Gray w-full items-center justify-center outline-none sm:py-3 sm:pl-16 sm:pr-20  sm:rounded-full transition-all duration-300`} />
+            
           </div>
           <Image src={Shop} alt="Shop" width={30} height={30}  className="cursor-pointer"/>
           <Image src={Profile}  alt="Profile"width={30} height={30}  className="cursor-pointer"/>
