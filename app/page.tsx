@@ -5,30 +5,9 @@ import Zara from '@/public/Images/Zara.svg'
 import Gucci from '@/public/Images/Gucci.svg'
 import Prada from '@/public/Images/Prada.svg'
 import Calvin from '@/public/Images/Calvin Klein.svg'
-import Tshirt from '@/public/Images/Clothes.svg'
-import { error } from 'console';
+import Productfn from './components/Productfn/productfn';
 export default function Home() {
-  const axios = require('axios');
-
   
-// Make a request for a user with a given ID
-axios.get('https://fakestoreapi.com/products/1')
-  .then( (res: any) => {
-    // handle success
-    const productId = res.data.id;
-    const producttitle = res.data.title;
-    const productprice = res.data.price;
-    const productRate = res.data.rating.rate;
-
-    console.log(productId);
-    console.log(productprice);
-    console.log(producttitle);
-    console.log(productRate);
-  })
-  .catch(function (error:any) {
-    // handle error
-    console.log(error);
-  })
   return (
     <>
      <div className=" pt-12 ">
@@ -66,41 +45,7 @@ axios.get('https://fakestoreapi.com/products/1')
         </div>
         {/* === First Section === */}
         {/* New Arrivals */}
-        <div className='flex flex-col items-center justify-between mt-20 gap-4'>
-          <h1 className='text-6xl font-bold'>New Arrivals</h1>
-          <div className='grid grid-flow-col  justify-around items-center gap-6 '>
-            <div className='flex flex-col items-start justify-between gap-4  '>
-              <div className='shadow-md bg-DGray p-10 rounded-3xl'>
-                <Image src={Tshirt} alt='Model' />
-              </div>
-              <h1 className='text-xl font-bold'>VERTICAL STRIPED SHIRT </h1>
-              <div className='flex items-center justify-between gap-3'>
-                <h1>⭐⭐⭐⭐⭐</h1>
-                <h1>5.0/5</h1>
-              </div>
-              <div className='flex items-center justify-between gap-3'>
-                <h1 className='font-bold'>212$</h1>
-                <h1 className='line-through text-TGray font-bold'>232$</h1>
-                <h1 className='bg-red-100 rounded-full px-4 py-2 text-red-500'>-20%</h1>
-              </div>
-            </div>
-            <div className='flex flex-col items-start justify-between gap-4  '>
-              <div className='shadow-md bg-DGray p-10 rounded-3xl'>
-                <Image src={Tshirt} alt='Model' />
-              </div>
-              <h1 className='text-xl font-bold'>VERTICAL STRIPED SHIRT</h1>
-              <div className='flex items-center justify-between gap-3'>
-                <h1>⭐⭐⭐⭐⭐</h1>
-                <h1>5.0/5</h1>
-              </div>
-              <div className='flex items-center justify-between gap-3'>
-                <h1 className='font-bold'>212$</h1>
-                <h1 className='line-through text-TGray font-bold'>232$</h1>
-                <h1 className='bg-red-100 rounded-full px-4 py-2 text-red-500'>-20%</h1>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Productfn />
         {/* === New Arrivals === */}
      </div>
     </>
