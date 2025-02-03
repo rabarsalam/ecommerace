@@ -41,8 +41,8 @@ export default function Productfn() {
     );
   };
   return (
-    <div className="flex flex-col items-center justify-between mt-20 gap-4">
-      <h1 className="text-6xl font-bold">New Arrivals</h1>
+    <div className="flex flex-col items-center text-center justify-between mt-20 gap-4">
+      <h1 className="text-5xl md:text-6xl font-bold">New Arrivals</h1>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mx-10">
         {products.length > 0 ? (
           products.slice(0,8).map((product) => (
