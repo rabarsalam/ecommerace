@@ -39,13 +39,11 @@ export default function Productfn({Title='New Arrivals'}) {
   // Function to generate star ratings
   const renderStars = useCallback((rating: number) => {
     const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 !== 0;
-    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+    const emptyStars = 5 - fullStars 
 
     return (
       <span>
         {"⭐".repeat(fullStars)}
-        {hasHalfStar && "½"}
         {"☆".repeat(emptyStars)}
       </span>
     );
