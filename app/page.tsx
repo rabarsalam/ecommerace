@@ -1,7 +1,10 @@
 "use client"
 import Image from 'next/image';
 import Model from '@/public/Images/Model.svg'
-
+import CASUAL from '@/public/Images/CASUAL.png'
+import FORMAL from '@/public/Images/FORMAL.png'
+import PARTY from '@/public/Images/PARTY.png'
+import GYM from '@/public/Images/GYM.png'
 import Productfn from './components/Productfn/productfn';
 import Banner from './components/Banner/banner'
 export default function Home() {
@@ -41,8 +44,26 @@ export default function Home() {
         {/* === New Arrivals === */}
 
         {/*  Category  */}
-        <div className='grid grid-cols-1 md:grid-cols-3'>
-
+        <div className='grid bg-Gray mx-2 lg:mx-20 mt-10 rounded-3xl py-10 px-5 gap-5'>
+          <h1 className='font-bold text-center text-4xl capitalize '>BROWSE BY dress STYLE</h1>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-14 overflow-hidden'>
+            <div className='flex bg-white rounded-2xl cursor-pointer hover:scale-105 duration-200 ease-linear h-36 md:h-full overflow-hidden'>
+              <h1 className='pl-10 pt-8'>Casual</h1>
+              <Image src={CASUAL}   className='w-full mix-blend-multiply rounded-2xl   md:pr-24' alt='CASUAL' />
+            </div>
+            <div className='flex md:col-span-2 bg-white rounded-2xl cursor-pointer hover:scale-105 duration-200 ease-linear h-36 md:h-full overflow-hidden'>
+              <h1 className='pl-10 pt-8'>Formal</h1>
+              <Image src={FORMAL}   className='w-full mix-blend-multiply rounded-2xl' alt='CASUAL' />
+            </div>
+            <div className='flex bg-white md:col-span-2 rounded-2xl cursor-pointer hover:scale-105 duration-200 ease-linear h-36 md:h-full overflow-hidden'>
+              <h1 className='pl-10 pt-8'>Party</h1>
+              <Image src={PARTY}   className='w-full mix-blend-multiply rounded-2xl ' alt='CASUAL' />
+            </div>
+            <div className='flex bg-white rounded-2xl cursor-pointer hover:scale-105 duration-200 ease-linear h-36 md:h-full overflow-hidden'>
+              <h1 className='pl-10 pt-8'>Gym</h1>
+              <Image src={GYM}   className='w-full mix-blend-multiply rounded-2xl object-cover md:pr-12' alt='CASUAL' />
+            </div>
+          </div>
         </div>
         {/* === Category === */}
      </div>

@@ -50,7 +50,7 @@ export default function Productfn({Title='New Arrivals'}) {
   }, []);
 
   return (
-    <div className="flex flex-col items-center text-center justify-between mt-20 gap-4">
+    <div className="flex flex-col items-center text-center justify-between mt-20 gap-4 overflow-hidden mx-2">
       <h1 className="text-5xl md:text-6xl font-bold">{Title}</h1>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mx-10">
         {loading ? (
@@ -61,7 +61,7 @@ export default function Productfn({Title='New Arrivals'}) {
               key={product.id}
               className="flex flex-col text-center items-center justify-between gap-1 p-4 rounded-xl"
             >
-              <div className="shadow-md bg-DGray w-36 h-36 md:w-72 md:h-64 p-12 md:p-4 rounded-3xl flex items-center justify-center">
+              <div className="shadow-md bg-DGray w-36 h-36 md:w-36 md:h-36 p-12 md:p-8 rounded-3xl flex items-center justify-center">
                 <Image
                   src={product.image}
                   width={150}
@@ -70,7 +70,7 @@ export default function Productfn({Title='New Arrivals'}) {
                   className="object-contain mix-blend-multiply"
                 />
               </div>
-              <h1 className="md:text-xl font-bold">
+              <h1 className="md:text-base lg:text-lg font-bold">
                 {product.title.split(" ").slice(0, 6).join(" ") + (product.title.split(" ").length > 5 ? "..." : "")}
               </h1>
 
@@ -79,11 +79,11 @@ export default function Productfn({Title='New Arrivals'}) {
                 <span>{product.rating.rate.toFixed(1)}/5</span>
               </div>
               <div className="flex items-center gap-3">
-                <h1 className="text-sm md:text-base font-bold">${product.price.toFixed(2)}</h1>
-                <h1 className="text-sm md:text-base line-through text-TGray font-bold">
+                <h1 className="text-sm lg:text-base font-bold">${product.price.toFixed(2)}</h1>
+                <h1 className="text-sm lg:text-base line-through text-TGray font-bold">
                   ${(product.price * 1.2).toFixed(2)}
                 </h1>
-                <h1 className="bg-red-100 rounded-full md:px-4 md:py-2 text-red-500 text-xs md:text-base">
+                <h1 className="bg-red-100 rounded-full lg:px-4 lg:py-2 text-red-500 text-xs lg:text-base">
                   -20%
                 </h1>
               </div>
