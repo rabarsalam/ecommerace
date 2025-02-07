@@ -69,7 +69,7 @@ export default function Productfn({Title='New Arrivals'}) {
                   width={150}
                   height={150}
                   alt={product.title}
-                  className="object-contain"
+                  className="object-contain mix-blend-multiply"
                 />
               </div>
               <h1 className="md:text-xl font-bold">

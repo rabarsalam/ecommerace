@@ -9,7 +9,7 @@ export default function Home() {
     <>
      <div className=" pt-12 ">
         {/* First Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 items-end justify-between gap-4 md:gap-44 md:pt-24 w-full md:px-10 pt-12 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 items-end justify-between gap-4 md:gap-44 md:pt-24 w-full md:px-10 pt-12  bg-Gray">
           <div className="text-left grid grid-cols-1  gap-4  px-3">
             <h1 className="font-bold text-3xl md:text-7xl">FIND CLOTHES THAT MATCHES YOUR STYLE</h1>
             <p className="font-light text-xs md:text-base ">Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</p>
@@ -32,13 +32,19 @@ export default function Home() {
             <Image src={Model} className='w-full'    alt="Model" />
         </div>
         <div className="bg-black shadow-lg w-full overflow-hidden">
-   <Banner />
-    </div>
+          <Banner />
+        </div>
         {/* === First Section === */}
         {/* New Arrivals */}
         <Productfn />
         <Productfn Title='TOP SELLING' />
         {/* === New Arrivals === */}
+
+        {/*  Category  */}
+        <div className='grid grid-cols-1 md:grid-cols-3'>
+
+        </div>
+        {/* === Category === */}
      </div>
     </>
   );
