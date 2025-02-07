@@ -46,6 +46,7 @@ export default function Home() {
         {/* === First Section === */}
         {/* New Arrivals */}
         <Productfn />
+        <Productfn Title='TOP SELLING' />
         {/* === New Arrivals === */}
      </div>
     </>

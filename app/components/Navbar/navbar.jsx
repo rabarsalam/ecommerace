@@ -63,8 +63,12 @@ export default function Navbar() {
             <input placeholder="What are you looking for? " aria-label="Search" type="text" className={`${isSearchVisible?'hidden':'flex'}  fixed py-2   top-10 rounded-b-lg  right-0 left-0 sm:static sm:bg-Gray w-full items-center justify-center outline-none sm:py-3 sm:pl-16 sm:pr-20  sm:rounded-full transition-all duration-300`} />
             
           </div>
-          <Image src={Shop} alt="Shop" width={30} height={30}  className="cursor-pointer hover:scale-110 duration-200 ease-linear"/>
-          <Image src={Profile}  alt="Profile"width={30} height={30}  className="cursor-pointer hover:scale-110 duration-200 ease-linear"/>
+          <Link href='/Cart'>
+            <Image src={Shop} alt="Shop" width={30} height={30}  className="cursor-pointer hover:scale-110 duration-200 ease-linear"/>
+          </Link>
+          <Link href='/Sign'>
+            <Image src={Profile}  alt="Profile"width={30} height={30}  className="cursor-pointer hover:scale-110 duration-200 ease-linear"/>
+          </Link>
         </div>
         {/* === Serch And Carding Section === */}
       </nav>

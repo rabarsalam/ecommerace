@@ -13,7 +13,7 @@ interface Product {
   rating: { rate: number };
 }
 
-export default function Productfn() {
+export default function Productfn({Title='New Arrivals'}) {
   const [products, setProducts] = useState<Product[]>([]); 
 
   useEffect(() => {
@@ -42,10 +42,10 @@ export default function Productfn() {
   };
   return (
     <div className="flex flex-col items-center text-center justify-between mt-20 gap-4">
-      <h1 className="text-5xl md:text-6xl font-bold">New Arrivals</h1>
+      <h1 className="text-5xl md:text-6xl font-bold">{Title}</h1>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mx-10">
         {products.length > 0 ? (
-          products.slice(0,8).map((product) => (
+          products.slice(0,4).map((product) => (
             <div
               key={product.id}
               className="flex flex-col text-center items-center justify-between gap-1 p-4  rounded-xl "
