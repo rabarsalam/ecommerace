@@ -42,12 +42,10 @@ export default function Navbar() {
           <div>
             <ul className="">
               <div className={`${isMenuOpen ? 'flex' : 'hidden'} sm:flex  gap-6 sm:gap-5 items-center justify-between flex-col sm:flex-row absolute sm:static right-0 left-0 top-10 py-4 bg-white rounded-b-lg `}>
-              <select name="Shop" id="Shop" className="bg-none outline-none  font-light text-xs md:text-xl"  >
-                <option value="volvo" >Shop</option>
-              </select>
+
                 {DataForNavbar.map((list) => {
                   return(
-                    <Link key={list.Id} className="font-light text-xs md:text-xl  "  href={`/${list.Url}`}>
+                    <Link key={list.Id} className="font-light text-xs md:text-xl hover:scale-105 duration-200 ease-linear  "  href={`/${list.Url}`}>
                       {list.Title}
                     </Link>
                     );
@@ -65,8 +63,8 @@ export default function Navbar() {
             <input placeholder="What are you looking for? " aria-label="Search" type="text" className={`${isSearchVisible?'hidden':'flex'}  fixed py-2   top-10 rounded-b-lg  right-0 left-0 sm:static sm:bg-Gray w-full items-center justify-center outline-none sm:py-3 sm:pl-16 sm:pr-20  sm:rounded-full transition-all duration-300`} />
             
           </div>
-          <Image src={Shop} alt="Shop" width={30} height={30}  className="cursor-pointer"/>
-          <Image src={Profile}  alt="Profile"width={30} height={30}  className="cursor-pointer"/>
+          <Image src={Shop} alt="Shop" width={30} height={30}  className="cursor-pointer hover:scale-110 duration-200 ease-linear"/>
+          <Image src={Profile}  alt="Profile"width={30} height={30}  className="cursor-pointer hover:scale-110 duration-200 ease-linear"/>
         </div>
         {/* === Serch And Carding Section === */}
       </nav>

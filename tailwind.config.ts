@@ -12,7 +12,8 @@ export default {
         Gray:"#F0F0F0",
         DGray:"#F0EEED",
         TGray:'#999999',
-        SecondaryRed:"#DB4444"
+        SecondaryRed:"#DB4444",
+        LightGreen:''
         
       },
       screens:{

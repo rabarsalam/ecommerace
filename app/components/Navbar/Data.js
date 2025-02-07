@@ -1,16 +1,21 @@
 const DataForNavbar = [
   {
     Id: 1,
-    Title: "On Sale",
+    Title: "Shop",
     Url: "",
   },
   {
     Id: 2,
+    Title: "On Sale",
+    Url: "",
+  },
+  {
+    Id: 3,
     Title: "New Arivals",
     Url: "Contact",
   },
   {
-    Id: 3,
+    Id: 4,
     Title: "Brands",
     Url: "About",
   },

@@ -16,7 +16,7 @@ export default function Home() {
           <div className="text-left grid grid-cols-1  gap-4  px-3">
             <h1 className="font-bold text-3xl md:text-7xl">FIND CLOTHES THAT MATCHES YOUR STYLE</h1>
             <p className="font-light text-xs md:text-base ">Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</p>
-            <button className="bg-black rounded-full px-4 md:px-7 md:w-44 py-3 text-white ">Shop Now</button>
+            <button className="bg-black rounded-full px-4 md:px-7 md:w-44 py-3 text-white hover:scale-105 duration-200 ease-linear ">Shop Now</button>
             <div className="grid grid-cols-2 md:grid-cols-3 items-center justify-center gap-3 text-center pb-32 md:pt-10">
               <div className="border-r-2">
                 <h1 className='font-bold text-xl lg:text-4xl'>200+</h1>
