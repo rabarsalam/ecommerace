@@ -1,13 +1,10 @@
+"use client"
 import Image from 'next/image';
 import Model from '@/public/Images/Model.svg'
-import Versace from '@/public/Images/Versace.svg'
-import Zara from '@/public/Images/Zara.svg'
-import Gucci from '@/public/Images/Gucci.svg'
-import Prada from '@/public/Images/Prada.svg'
-import Calvin from '@/public/Images/Calvin Klein.svg'
+
 import Productfn from './components/Productfn/productfn';
+import Banner from './components/Banner/banner'
 export default function Home() {
-  
   return (
     <>
      <div className=" pt-12 ">
@@ -34,15 +31,9 @@ export default function Home() {
           </div>
             <Image src={Model} className='w-full'    alt="Model" />
         </div>
-        <div className='bg-black shadow-lg   w-full'>
-            <div  className='flex items-center justify-around flex-wrap gap-2 px-3 py-7'>
-              <Image src={Versace} alt='Versace' />
-              <Image src={Zara} alt='zara' />
-              <Image src={Gucci} alt='Gucci' />
-              <Image src={Prada} alt='prada' />
-              <Image src={Calvin} alt='Calvin Klein' />
-            </div>
-        </div>
+        <div className="bg-black shadow-lg w-full overflow-hidden">
+   <Banner />
+    </div>
         {/* === First Section === */}
         {/* New Arrivals */}
         <Productfn />
