@@ -2,7 +2,7 @@ const DataForNavbar = [
   {
     Id: 1,
     Title: "Shop",
-    Url: "",
+    Url: "Shop",
   },
   {
     Id: 2,

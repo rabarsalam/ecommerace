@@ -22,6 +22,7 @@ export default {
         xlarge:'1250px'
       },
       width:{
+        '88':'355',
         '104':'405px'
       }
     },

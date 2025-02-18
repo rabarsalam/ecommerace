@@ -21,7 +21,7 @@ export default function Navbar() {
 
   }
   return (
-    <div>
+    <div className=" pb-16 ">
       <nav className="grid grid-cols-2 items-center justify-around  p-2 border-b-2 fixed bg-white w-screen ">
         <div className="flex items-center justify-between sm:gap-20  ">
         {/* Title */}
