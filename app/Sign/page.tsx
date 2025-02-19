@@ -22,7 +22,7 @@ export default function page() {
             </div>
             <div className="flex flex-col gap-1">
               <label >Email address</label>
-              <input placeholder="Enter Your Email" type="email" className="outline-none border-2 p-2 rounded-md" />
+              <input placeholder="Enter Your Email" type="email" className="outline-none border-2 p-2 rounded-md invalid:border-pink-500 invalid:text-pink-600" />
             </div>
             <div className="flex flex-col gap-1">
               <label >Password</label>
