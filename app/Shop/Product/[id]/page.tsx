@@ -21,7 +21,7 @@ export default function ProductShop() {
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
+  const [quantity,Setquantity]=useState(1);
   useEffect(() => {
     if (!productId) return;
 
@@ -62,9 +62,16 @@ export default function ProductShop() {
   if (loading) {
     return <p className="text-center mt-10">Loading product...</p>;
   }
-
+  function decreaseQuantity(){
+    if(quantity >1){
+      Setquantity((prev) => prev - 1) 
+    }
+  }
+  function increaseQuantity (){
+    Setquantity((prev) => prev + 1)
+  }
   return (
-    <div className="mt-10 px-16">
+    <div className="mt-6 px-2 md:px-16 ">
       {/* Breadcrumb */}
       <div className="flex items-center">
         <Link href="/">Home &gt;</Link>
@@ -74,19 +81,19 @@ export default function ProductShop() {
         )}
       </div>
 
-      <div className="flex items-center mt-8">
-        <div className="flex items-center gap-4">
+      <div className="flex items-center mt-4 duration-1500 ease-in-out">
+        <div className="flex flex-col md:flex-row items-center gap-4">
           {/* Thumbnails */}
-          <div className="grid grid-cols-1 gap-2">
+          <div className="grid order-2 md:order-1 grid-cols-3 items-center justify-center md:grid-cols-1 gap-2 ">
             {[...Array(3)].map((_, index) => (
               <div
                 key={index}
-                className="bg-gray-200 p-4 rounded-xl hover:border-2 hover:border-black cursor-pointer"
+                className="flex items-center justify-center bg-gray-200 p-4 rounded-xl hover:border-2 hover:border-black cursor-pointer duration-100 ease-linear "
                 onClick={() => setSelectedImage(product?.image ?? "/placeholder.png")}
               >
                 <Image
                   src={product?.image ?? "/placeholder.png"}
-                  className="mix-blend-multiply"
+                  className="mix-blend-multiply active:scale-150 active:m-8 duration-500 ease-linear transition-all"
                   width={75}
                   height={75}
                   alt={`Thumbnail ${index + 1}`}
@@ -96,20 +103,20 @@ export default function ProductShop() {
           </div>
 
           {/* Main Product Image */}
-          <div className="bg-gray-200 p-10 rounded-xl">
+          <div className="bg-gray-200 p-8 rounded-xl  flex justify-center order-1">
             <Image
               id="Main-image"
               src={selectedImage ?? "/placeholder.png"}
-              className="mix-blend-multiply"
-              width={385}
-              height={385}
+              className="mix-blend-multiply lg:active:scale-105 lg:active:mx-72 duration-700 delay-200 ease-linear transition-all"
+              width={350}
+              height={350}
               alt="Product Image"
             />
           </div>
 
           {/* Product Details */}
-          <div className="grid grid-cols-1 items-start px-8 gap-3">
-            <h1 className="text-xl font-semibold">{product?.title ?? "Unknown Product"}</h1>
+          <div className="grid grid-cols-1 items-start px-8 gap-3 order-3 ">
+            <h1 className="text-2xl md:text-4xl font-semibold">{product?.title ?? "Unknown Product"}</h1>
             <div className="flex items-center gap-2 text-xs md:text-base">
               <span>{renderStars(product?.rating?.rate)}</span>
               <span>{(product?.rating?.rate ?? 0).toFixed(1)}/5</span>
@@ -125,13 +132,37 @@ export default function ProductShop() {
                 -20%
               </h1>
             </div>
-            <p>
-              {product?.title
-                ? product.title.split(" ").slice(0, 9).join(" ") +
-                  (product.description && product.description.split(" ").length > 5 ? "..." : "")
-                : "No description available"}
+            <p className="font-extralight w-72 md:w-104 text-sm text-wrap">
+              {product?.description }
             </p>
             <hr />
+            <div className="flex items-start flex-col gap-2">
+              <h1 className="font-extralight">Select Color</h1>
+              <div className="flex items-center gap-2">
+                <button className="bg-black rounded-full w-8 h-8 outline-1  focus:outline duration-200 ease-in-out "></button>
+                <button className="bg-blue-700 rounded-full w-8 h-8 outline-1  focus:outline duration-200 ease-in-out "></button>
+                <button className="bg-gray-700 rounded-full w-8 h-8 outline-1  focus:outline duration-200 ease-in-out "></button>
+              </div>
+            </div>
+            <hr></hr>
+            <div className="grid gap-2">
+              <h1 className="font-extralight">Choose Size</h1>
+              <div className="flex gap-2 selection:bg-black">
+                <button className="bg-Gray text-xs md:text-base p-2 md:p-4  rounded-full focus:bg-black focus:text-white  focus-within:shadow-lg">Small</button>
+                <button className="bg-Gray text-xs md:text-base p-2 md:p-4 rounded-full focus:bg-black focus:text-white  focus-within:shadow-lg">Medium</button>
+                <button className="bg-Gray text-xs md:text-base p-2 md:p-4 rounded-full focus:bg-black focus:text-white  focus-within:shadow-lg">Large</button>
+                <button className="bg-Gray text-xs md:text-base p-2 md:p-4 rounded-full focus:bg-black focus:text-white  focus-within:shadow-lg">X-Large</button>
+              </div>
+            </div>
+            <hr></hr>
+            <div className="grid grid-cols-3 items-center gap-2 justify-between">
+              <div className="py-2 px-4 flex items-center justify-between rounded-full bg-Gray">
+                <button onClick={decreaseQuantity}>-</button>
+                <h1 >{quantity}</h1>
+                <button onClick={increaseQuantity }>+</button>
+              </div>
+              <button className="bg-black p-2 text-white rounded-full col-span-2">Add to Cart</button>
+            </div>
           </div>
         </div>
       </div>
