@@ -1,16 +1,22 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+import type { NextConfig } from 'next';
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   images: {
     domains: ['fakestoreapi.com'],
     remotePatterns: [
       {
-        protocol: 'https',
+        protocol: 'https', // ✅ Fix: Explicitly set "https"
         hostname: 'fakestoreapi.com',
-        port: '',
         pathname: '/**',
       },
     ],
   },
-}
+  experimental: {}, // ✅ Remove serverActions
+};
 
-module.exports = nextConfig
+// Use next-intl plugin
+const withNextIntl = createNextIntlPlugin();
+
+export default withNextIntl(nextConfig);
