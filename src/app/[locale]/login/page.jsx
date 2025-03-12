@@ -6,7 +6,6 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/src/i18n/routing";
 import { useState } from "react";
 import axios from "axios";
-import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 
 export default function Page() {
@@ -15,7 +14,6 @@ export default function Page() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const t = useTranslations("SignPage");
-  const router = useRouter();
   
   const baseUrl = process.env.NODE_ENV === 'production'
   ? "https://peaceful-tapioca-967709.netlify.app/"

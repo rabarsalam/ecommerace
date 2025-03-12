@@ -7,7 +7,7 @@ const REFRESH_SECRET = process.env.REFRESH_SECRET;
 
 export async function POST() {
   try {
-    const cookieStore = cookies(); // Ensure cookies() is properly accessed
+    const cookieStore = cookies(); 
     const refreshToken = cookieStore.get("refreshToken")?.value;
 
     if (!refreshToken) {
@@ -16,7 +16,6 @@ export async function POST() {
 
     const payload = jwt.verify(refreshToken, REFRESH_SECRET);
     
-    // Generate a new access token
     const newAccessToken = jwt.sign(
       { username: payload.username },
       SECRET_KEY,

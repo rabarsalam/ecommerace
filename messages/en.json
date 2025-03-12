@@ -40,7 +40,7 @@
     "Language": "Language",
     "Arabic": "Arabic",
     "English":"English",
-    "kurdish":"Kurdish",
+    "Kurdish":"Kurdish",
     "shop":"shop",
     "onSale":"on Sale",
     "newArrivals":"new Arrivals",
@@ -79,22 +79,22 @@
     "add":"Add to Cart",
     "loading":"loading..."
   },
-  "RegisterPage":{
-    "title":"Register",
-    "detail":"Enter your details to register",
-    "fullName":"Full Name",
-    "phone":"Phone Number",
-    "email":"Email Address",
-    "pass":"Password",
-    "confirmPass":"Confirm Password",
-    "terms":"I agree to the Terms and conditions",
-    "register":"Register",
-    "or":"or",
-    "google":"Sign In with google",
-    "alreadyAccount":"Already have an account?",
-    "signIn":"sign In"
-  },
   
+    "RegisterPage": {
+      "title": "Create an Account",
+      "detail": "Sign up to get started with our platform.",
+      "fullName": "Full Name",
+      "phone": "Phone Number",
+      "email": "Email Address",
+      "pass": "Password",
+      "confirmPass": "Confirm Password",
+      "terms": "I agree to the Terms and Conditions",
+      "register": "Sign Up",
+      "or": "or",
+      "google": "Sign up with Google",
+      "alreadyAccount": "Already have an account?",
+      "signIn": "Sign In"
+    },
     "BlogPage": {
       "blogTitle":"Our Blog",
       "blogDescription":  "Stay updated with our latest fashion trends, styles and collections",

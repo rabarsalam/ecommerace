@@ -1,5 +1,5 @@
 "use client";
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
@@ -11,15 +11,16 @@ import Profile from '@/public/Images/Profile.svg';
 import Login from '@/public/Images/login.svg';
 import Shop from '@/public/Images/Shop.svg';
 import Menus from '@/public/Images/Menu.png';
-import { useRouter, usePathname} from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
+
 export default function Navbar() {
   const t = useTranslations("Navbar");
   const router = useRouter();
   const pathname = usePathname();
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isSearchActive, setSearchActive] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState("en"); 
-  const DataForNavbar = getDataForNavbar(); 
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
+  const DataForNavbar = getDataForNavbar();
   const [token, setToken] = useState(null);
 
   useEffect(() => {
@@ -32,18 +33,17 @@ export default function Navbar() {
     };
     getToken();
   }, []);
+
   const handleLogout = () => {
     document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     setToken(null);
-    
+
     const segments = pathname.split("/");
     const languagePrefix = ["en", "ar", "ku"].includes(segments[1]) ? `/${segments[1]}` : "";
-    
+
     router.push(`${languagePrefix}/login`);
     return NextResponse.json({ message: "Logged out successfully" }, { status: 200 });
-
   };
-
 
   function toggleMenu() {
     setMenuOpen(!isMenuOpen);
@@ -61,9 +61,9 @@ export default function Navbar() {
 
   const changeLanguage = (locale) => {
     setSelectedLanguage(locale);
-    
+
     const segments = pathname.split("/");
-    
+
     if (["en", "ar", "ku"].includes(segments[1])) {
       segments[1] = locale;
       router.push(segments.join("/"));
@@ -74,11 +74,11 @@ export default function Navbar() {
 
   return (
     <div className="pb-16">
-      <nav className="flex flex-wrap items-center justify-between p-6 border-b-2 fixed top-0 left-0 right-0 bg-white w-full z-40 shadow-sm">
+      <nav className="flex  items-center justify-between p-6 border-b-2 fixed top-0 left-0 right-0 bg-white w-full z-40 shadow-sm">
         <div className="flex items-center justify-between w-full md:w-auto">
           <div className="flex items-center gap-3">
-            <button 
-              onClick={toggleMenu} 
+            <button
+              onClick={toggleMenu}
               className="flex md:hidden"
               aria-label="Toggle menu"
             >
@@ -88,7 +88,7 @@ export default function Navbar() {
               SHOP.CO
             </Link>
           </div>
-          
+
           <div className="flex md:hidden items-center gap-3">
             <button onClick={toggleSearch} aria-label="Search">
               <Image src={Search} alt="Search" width={24} height={24} className="w-6 h-6" />
@@ -96,14 +96,18 @@ export default function Navbar() {
             <Link href="/Cart" aria-label="Cart">
               <Image src={Shop} alt="Shop" width={24} height={24} className="w-6 h-6 transition duration-200 hover:scale-110" />
             </Link>
-            {
-            token != null ? "" :           <Link href="/login" aria-label="Profile">
-            <Image src={Login} alt="Profile" width={24} height={24} className="transition duration-200 hover:scale-110" />
-          </Link> 
-          }
+            {token == null ? (
+              <Link href="/login" aria-label="Profile">
+                <Image src={Login} alt="Profile" width={24} height={24} className="transition duration-200 hover:scale-110" />
+              </Link>
+            ) : (
+              <Link href="/account" aria-label="Account">
+                <Image src={Profile} alt="Profile" width={24} height={24} className="transition duration-200 hover:scale-110" />
+              </Link>
+            )}
             {token && (
-            <button onClick={handleLogout} className="bg-red-500 text-white px-3 py-2 rounded-md">{t('logout')}</button>
-          )}
+              <button onClick={handleLogout} className="bg-red-500 text-white px-3 py-2 rounded-md">{t('logout')}</button>
+            )}
           </div>
         </div>
 
@@ -165,7 +169,7 @@ export default function Navbar() {
                         className={`block w-full text-left px-4 py-2 text-sm ${selectedLanguage === "ku" ? "font-bold bg-gray-100" : "text-gray-700"}`}
                         onClick={() => changeLanguage("ku")}
                       >
-                        {t("kurdish")}
+                        {t("Kurdish")}
                       </button>
                     </MenuItem>
                   </div>
@@ -189,19 +193,18 @@ export default function Navbar() {
           <Link href="/Cart" aria-label="Cart">
             <Image src={Shop} alt="Shop" width={24} height={24} className="transition duration-200 hover:scale-110" />
           </Link>
-          {
-            token != null ? "" :           <Link href="/login" aria-label="Profile">
-            <Image src={Login} alt="Profile" width={24} height={24} className="transition duration-200 hover:scale-110" />
-          </Link> 
-          }
+          {token == null ? (
+            <Link href="/login" aria-label="Profile">
+              <Image src={Login} alt="Profile" width={24} height={24} className="transition duration-200 hover:scale-110" />
+            </Link>
+          ) : (
+            <Link href="/account" aria-label="Account">
+              <Image src={Profile} alt="Account" width={24} height={24} className="transition duration-200 hover:scale-110" />
+            </Link>
+          )}
 
           {token && (
             <button onClick={handleLogout} className="bg-red-500 text-white px-3 py-2 rounded-md">{t('logout')}</button>
-          )}
-          {token && (
-            <Link href="/account" aria-label="Account">
-            <Image src={Profile} alt="Account" width={24} height={24} className="transition duration-200 hover:scale-110" />
-          </Link> 
           )}
         </div>
 

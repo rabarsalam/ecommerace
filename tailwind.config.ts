@@ -5,7 +5,7 @@ export default {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/next-intl/**/*.js",  // Add this if next-intl includes classes dynamically
+    "./node_modules/next-intl/**/*.js",
   ],
   theme: {
     extend: {
