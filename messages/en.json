@@ -45,7 +45,8 @@
     "onSale":"on Sale",
     "newArrivals":"new Arrivals",
     "brands":"brands",
-    "search":"What are you looking for?"
+    "search":"What are you looking for?",
+    "logout":"Logout"
   },
   "FormContact":{
     "title":"STAY UPTO DATE ABOUT  OUR LATEST OFFERS",
@@ -63,7 +64,8 @@
     "sign":"Sign In",
     "register":"Sign Up",
     "haveaccount":"Don't have an account?",
-    "google":"Sign in with Google"
+    "google":"Sign in with Google",
+    "loginfailed":"Invalid credentials. Please try again."
   },
   "ProductPage":{
     "home":"Home",
@@ -76,5 +78,36 @@
     "xlarge":"X-Large",
     "add":"Add to Cart",
     "loading":"loading..."
+  },
+  "RegisterPage":{
+    "title":"Register",
+    "detail":"Enter your details to register",
+    "fullName":"Full Name",
+    "phone":"Phone Number",
+    "email":"Email Address",
+    "pass":"Password",
+    "confirmPass":"Confirm Password",
+    "terms":"I agree to the Terms and conditions",
+    "register":"Register",
+    "or":"or",
+    "google":"Sign In with google",
+    "alreadyAccount":"Already have an account?",
+    "signIn":"sign In"
+  },
+  
+    "BlogPage": {
+      "blogTitle":"Our Blog",
+      "blogDescription":  "Stay updated with our latest fashion trends, styles and collections",
+      "noBlogs":"No blogs available",
+      "readMore":  "Read More",
+      "createBlog": "Create Blog",
+      "createNewBlog": "Create New Blog",
+      "creating":"Creating...",
+      "createFirst":"Create Your First Blog",
+      "blogContent":"Blog Content",
+      "blogCategory":"Blog Category",
+      "blogImage": "Blog Image URL",
+      "blogCreatedSuccess":"Blog created successfully!"
+
+    }
   }
-}

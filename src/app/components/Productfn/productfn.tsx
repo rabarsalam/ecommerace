@@ -17,7 +17,7 @@ export default function Productfn({ Title = 'New Arrivals' }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let isMounted = true; // Prevent state updates if unmounted
+    let isMounted = true; 
     const fetchProducts = async () => {
       try {
         const res = await axios.get("https://fakestoreapi.com/products");
@@ -39,7 +39,7 @@ export default function Productfn({ Title = 'New Arrivals' }) {
     };
   }, []);
 
-  // Function to generate star ratings
+  //star ratings
   const renderStars = useCallback((rating: number) => {
     const fullStars = Math.floor(rating);
     const emptyStars = 5 - fullStars;

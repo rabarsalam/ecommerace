@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-// Import your logo images
+// logo images
 import Versace from '@/public/Images/Versace.svg'
 import Zara from '@/public/Images/Zara.svg'
 import Gucci from '@/public/Images/Gucci.svg'

@@ -7,16 +7,15 @@ const nextConfig: NextConfig = {
     domains: ['fakestoreapi.com'],
     remotePatterns: [
       {
-        protocol: 'https', // ✅ Fix: Explicitly set "https"
+        protocol: 'https',
         hostname: 'fakestoreapi.com',
         pathname: '/**',
       },
     ],
   },
-  experimental: {}, // ✅ Remove serverActions
+  experimental: {},
 };
 
-// Use next-intl plugin
 const withNextIntl = createNextIntlPlugin();
 
 export default withNextIntl(nextConfig);

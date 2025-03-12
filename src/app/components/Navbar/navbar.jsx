@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
@@ -8,10 +8,10 @@ import Image from "next/image";
 import getDataForNavbar from "./Data";
 import Search from '@/public/Images/Search.svg';
 import Profile from '@/public/Images/Profile.svg';
+import Login from '@/public/Images/login.svg';
 import Shop from '@/public/Images/Shop.svg';
 import Menus from '@/public/Images/Menu.png';
-import { useRouter, usePathname } from "next/navigation";
-
+import { useRouter, usePathname} from "next/navigation";
 export default function Navbar() {
   const t = useTranslations("Navbar");
   const router = useRouter();
@@ -20,6 +20,30 @@ export default function Navbar() {
   const [isSearchActive, setSearchActive] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState("en"); 
   const DataForNavbar = getDataForNavbar(); 
+  const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    const getToken = () => {
+      const cookies = document.cookie.split("; ");
+      const tokenCookie = cookies.find((row) => row.startsWith("token="));
+      if (tokenCookie) {
+        setToken(tokenCookie.split("=")[1]);
+      }
+    };
+    getToken();
+  }, []);
+  const handleLogout = () => {
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    setToken(null);
+    
+    const segments = pathname.split("/");
+    const languagePrefix = ["en", "ar", "ku"].includes(segments[1]) ? `/${segments[1]}` : "";
+    
+    router.push(`${languagePrefix}/login`);
+    return NextResponse.json({ message: "Logged out successfully" }, { status: 200 });
+
+  };
+
 
   function toggleMenu() {
     setMenuOpen(!isMenuOpen);
@@ -35,7 +59,6 @@ export default function Navbar() {
     }
   }
 
-  // Function to switch language while keeping the same page route
   const changeLanguage = (locale) => {
     setSelectedLanguage(locale);
     
@@ -73,9 +96,14 @@ export default function Navbar() {
             <Link href="/Cart" aria-label="Cart">
               <Image src={Shop} alt="Shop" width={24} height={24} className="w-6 h-6 transition duration-200 hover:scale-110" />
             </Link>
-            <Link href="/Sign" aria-label="Profile">
-              <Image src={Profile} alt="Profile" width={24} height={24} className="w-6 h-6 transition duration-200 hover:scale-110" />
-            </Link>
+            {
+            token != null ? "" :           <Link href="/login" aria-label="Profile">
+            <Image src={Login} alt="Profile" width={24} height={24} className="transition duration-200 hover:scale-110" />
+          </Link> 
+          }
+            {token && (
+            <button onClick={handleLogout} className="bg-red-500 text-white px-3 py-2 rounded-md">{t('logout')}</button>
+          )}
           </div>
         </div>
 
@@ -161,10 +189,22 @@ export default function Navbar() {
           <Link href="/Cart" aria-label="Cart">
             <Image src={Shop} alt="Shop" width={24} height={24} className="transition duration-200 hover:scale-110" />
           </Link>
-          <Link href="/Sign" aria-label="Profile">
-            <Image src={Profile} alt="Profile" width={24} height={24} className="transition duration-200 hover:scale-110" />
-          </Link>
+          {
+            token != null ? "" :           <Link href="/login" aria-label="Profile">
+            <Image src={Login} alt="Profile" width={24} height={24} className="transition duration-200 hover:scale-110" />
+          </Link> 
+          }
+
+          {token && (
+            <button onClick={handleLogout} className="bg-red-500 text-white px-3 py-2 rounded-md">{t('logout')}</button>
+          )}
+          {token && (
+            <Link href="/account" aria-label="Account">
+            <Image src={Profile} alt="Account" width={24} height={24} className="transition duration-200 hover:scale-110" />
+          </Link> 
+          )}
         </div>
+
       </nav>
     </div>
   );
